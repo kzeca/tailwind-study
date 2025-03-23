@@ -84,6 +84,7 @@
               document.getElementById("content-container");
             const previewTriggers =
               document.querySelectorAll(".preview-trigger");
+            previewContainer.style.pointerEvents = "none";
 
             function showPreview(imageUrl) {
               previewContainer.style.backgroundImage = `url(${imageUrl})`;
@@ -91,12 +92,14 @@
               defaultContent.classList.add("opacity-0");
               previewContainer.classList.remove("opacity-0");
               previewContainer.classList.add("opacity-100");
+              previewContainer.style.pointerEvents = "auto";
             }
 
             function hidePreview() {
               defaultContent.classList.remove("opacity-0");
               previewContainer.classList.remove("opacity-100");
               previewContainer.classList.add("opacity-0");
+              previewContainer.style.pointerEvents = "none";
             }
 
             previewTriggers.forEach((trigger) => {
